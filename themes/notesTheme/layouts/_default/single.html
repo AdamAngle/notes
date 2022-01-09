@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="container-fluid">
+  <div class="row">
+    {{- partial "section_list.html" . -}}
+    <div class="col">
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+    </div>
+    {{- partial "pagenav.html" . -}}
+  </div>
+</div>
+{{ end }}

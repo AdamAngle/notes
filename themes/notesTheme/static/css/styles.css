@@ -1,0 +1,166 @@
+
+/* Custom nav-item styling (including bg color) */
+nav.navbar-light {
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+nav.navbar {
+  margin-bottom: 1em;
+}
+
+li.nav-item, a.nav-link {
+    width: 100%;
+    text-align: center;
+}
+
+a.nav-link {
+  background: linear-gradient(270deg, #f6fff7 0%, #f0f5ff 100%);
+}
+
+a.nav-link.active {
+  background: linear-gradient(270deg, #e5ffe8 0%, #e0eaff 100%);
+}
+
+/* Medium devices The navbar toggle appears at this breakpoint */
+@media (min-width: 992px) {
+  li.nav-item {
+    margin: 0 1em !important;
+  }
+
+  .pagenav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+    right: 0;
+    z-index: 2;
+    height: calc(100vh - 7rem);
+    overflow-y: auto;
+  }
+}
+
+.mt-half {
+  margin-top: 0.5rem;
+}
+
+div.card-course.complete {
+  background: linear-gradient(90deg, #e3ffe7 0%, #d5fddb 100%);
+}
+
+div.card-course.in-progress {
+  background: linear-gradient(90deg, #fffef3 0%, #fffbca 100%);
+}
+
+a.nav-link, div.card-course {
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 0.25em 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+a.nav-link::after, div.card-course::after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+a.nav-link:hover, div.card-course:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+
+a.nav-link:hover::after, div.card-course:hover::after {
+  opacity: 1;
+}
+
+
+/* Notes page styles */
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.side-page {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.side-page:hover,
+.side-page:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.side-page::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.side-page[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.side-page[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.side-page-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.side-page-nav a:hover,
+.side-page-nav a:focus,
+.side-page-nav a.active {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+#TableOfContents ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+#TableOfContents a:not(:hover) {
+  text-decoration: none;
+}
+
+#TableOfContents a {
+  color: inherit;
+}

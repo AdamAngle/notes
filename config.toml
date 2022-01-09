@@ -1,0 +1,21 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = "Adam's Notes"
+theme = 'notesTheme'
+
+[menu]
+  [[menu.main]]
+    name = "Notes"
+    pre = "pen-tool"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    pre = "info"
+    url = "/about/"
+    weight = 2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="container">
+    <h1 class="display-6">View by Term</h1>
+    <hr />
+    {{ range $term, $_ := .Site.Taxonomies }}
+    {{ with $.Site.GetPage (printf "/%s" $term | urlize) }}
+      <h3>{{ .Title | title }}</h3>
+      <div class="row">
+      {{ range .Pages }}
+        <li class="flex justify-between">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span>{{ len .Pages }}</span>
+        </li>
+      {{ end }}
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
