@@ -50,7 +50,7 @@ Overview
 </a>
 </li>
 <li>
-<a href=/cs61b/01/ class="link-dark rounded active">Week 01-1: Introduction</a>
+<a href=/cs61b/01-01/ class="link-dark rounded active">Week 01-1: Introduction</a>
 </li>
 </ul>
 </aside><div class=col>
@@ -73,27 +73,36 @@ Overview
 </span><span style=color:#75715e> * MyFancyApp implements a simple application to print
 </span><span style=color:#75715e> * &#34;Hello, world!&#34; to the standard console output.
 </span><span style=color:#75715e> */</span>
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyFancyApp</span>
-<span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span>
-    <span style=color:#f92672>{</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyFancyApp</span> <span style=color:#75715e>// &lt;-- Class Definition
+</span><span style=color:#75715e></span><span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#75715e>// &lt;-- Function Definition
+</span><span style=color:#75715e></span>    <span style=color:#f92672>{</span>
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello, world!&#34;</span><span style=color:#f92672>);</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
 </code></pre></div><p>Well, it is a little more complicated here. Let&rsquo;s pick it apart!</p>
 <h5 id=comments>Comments</h5>
 <p><strong>Comments</strong> can start with <code>//</code> and go at the end of a line (equivalent to <code>#</code> in Python), or <strong>can span multiple lines</strong> when bracketed using <code>/*</code> and <code>*/</code>.</p>
-<p>Similar to multiline comments, <strong>documentation comments</strong> start with <code>/**</code>. These are just like other comments, having no effect. However, many editors interpret them as providing useful documentation for anything following them. <strong>These are required per our style checks</strong>, so it is a good idea to get comfortable with using them.</p>
+<p><strong>Documentation comments</strong> start with <code>/**</code>, and work the same way as other comments. However, many editors interpret them as providing useful documentation for anything following them. <strong>These are required per our style checks</strong>, so it is a good idea to get comfortable with using them.</p>
 <h5 id=classes>Classes</h5>
 <p>Every <strong>function</strong> and <strong>variable</strong> in Java is <strong>contained within some sort of class</strong>.</p>
 <p>Every <strong>class</strong> belongs to a <strong>package</strong>. In our example, the <code>MyFancyApp</code> class belongs to the <strong>anonymous package</strong> since it hasn&rsquo;t explicitly been assigned to a particular package.</p>
-<div class="alert alert-info" role=alert>Named packages will be covered later in the course.</div>
+<p>Example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>/** Example class defined in the anonymous package */</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ExampleClass</span>
+<span style=color:#f92672>{</span>
+    <span style=color:#75715e>/* Valid Function Definition */</span>
+    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>validFunction</span><span style=color:#f92672>();</span>
+<span style=color:#f92672>}</span>
+<span style=color:#75715e>/* Invalid Function Definition (outside of class) */</span>
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>invalidFunction</span><span style=color:#f92672>();</span>
+</code></pre></div><div class="alert alert-info" role=alert>Named packages will be covered later in the course.</div>
 <h5 id=methods-functions>Methods (Functions)</h5>
-<p>The functions here are a bit more involved than they are in Python. This is because they must also specify the <strong>types</strong> for the function&rsquo;s <strong>parameters</strong> and its <strong>returned values</strong>.</p>
+<p>Unlike Python, Java functions must specify the <strong>types</strong> for the function&rsquo;s <strong>parameters</strong> and its <strong>returned values</strong>.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span>
-</code></pre></div><p>The <code>void</code> kyeyword can be used to specify that there are <strong>no possible values returned</strong>. By this definition, in our example, the <strong><code>main</code></strong> function <strong>returns nothing</strong>. The <code>String</code> type can be thought of as being similar to the <code>str</code> type in Python. The <code>[]</code> trailing afterwards means <em><strong>array of</strong></em>.</p>
+</code></pre></div><p>The <code>void</code> keyword can be used to specify that there are <strong>no possible values returned</strong>. By this definition, in our example, the <strong><code>main</code></strong> function <strong>returns nothing</strong>. The <code>String</code> type can be thought of as being similar to the <code>str</code> type in Python. The <code>[]</code> trailing afterwards means <em><strong>array of</strong></em>.</p>
 <div class="alert alert-warning" role=alert>Be careful relating Java arrays to Python lists, as they aren&rsquo;t exactly alike. Unlike Python, which is a dynamically typed language, Java arrays are limited to having a <strong>fixed size</strong> and are <strong>typed</strong>, meaning you must specify the exact size of the array beforehand, and cannot store mixed datatypes in a single array.</div>
-<p>Using these definitions, we can deduce that our <code>main</code> function takes in an array of strings and returns nothing.</p>
+<p>Using these definitions, we can deduce that our <code>main</code> function within the original <code>MyFancyApp</code> class takes in an array of strings and returns nothing.</p>
 <p>But what is the deal with the fact that the function is named <code>main</code>? Why not <code>myFancyMethod</code>, or <code>sayHelloToTheWorld</code>? Well, these would be valid function names, but the name <code>main</code> has a <strong>special meaning</strong> within Java. The <code>main</code> method is what gets called whenever someone <strong>runs the Java program</strong>.</p>
 <h5 id=selection>Selection</h5>
 <p>Selection works in a similar manner to Python:</p>
@@ -104,7 +113,7 @@ Overview
 <p>Using this knowledge, <code>System.out</code> means &ldquo;the variable called <code>out</code> that is found inside of the class named <code>System</code>.&rdquo;</p>
 <p>For the <code>println</code> method, it works the exact same way: &ldquo;the method named <code>println</code> that applies to the object referenced by the evaluated value of <code>System.out</code>.&rdquo;</p>
 <h5 id=access>Access</h5>
-<p>Every entity in Java has some sort of <strong>access permission</strong> given to it, which indicates which pieces of code can access it. This access is specified through the use of <strong>modifiers</strong>, like <code>public</code> in this case. Each modifier specifies a different level of access for other parts of your code. <code>public</code> provides visibility to all classes everywhere, including through inheritance through subclasses. <code>private</code> specifies that the member can only be accessed from within its own class. An overview of the different access levels is provided in the table below:</p>
+<p>Every entity in Java has some sort of <strong>access permission</strong> given to it, which indicates which pieces of code can access it. This access is specified through the use of <strong>modifiers</strong>, like <code>public</code>. Each modifier specifies a different level of access for other parts of your code. <code>public</code> provides visibility to all classes everywhere, including through inheritance through subclasses. <code>private</code> specifies that the member can only be accessed from within its own class. An overview of the different access levels is provided in the table below:</p>
 <table>
 <thead>
 <tr>
@@ -142,7 +151,7 @@ Overview
 <p>When using comments, make sure to use the <strong>multiline version (<code>/*</code> or <code>/**</code>)</strong>. Grading will be based on the absence of inline (<code>//</code>) comments.</p>
 </li>
 <li>
-<p>All parameters and methods must have a <strong>type</strong> associated with them. If there is nothing expected to be returned, use the <strong><code>void</code></strong> keyword.</p>
+<p>All parameters and methods must have a <strong>type</strong> associated with them. If there is nothing expected to be returned, use the <strong><code>void</code></strong> keyword (i.e. <code>public static void main()</code>).</p>
 </li>
 <li>
 <p>Every <strong>function</strong> belongs to a <strong>class</strong> (in which it becomes a method), and every <strong>class</strong> belongs to a <strong>package</strong>. If a package is not explicitly assigned, the class is associated with the <strong>anonymous package</strong>.</p>
@@ -151,59 +160,6 @@ Overview
 <p>All Java entities have <strong>access permissions</strong>, whether implied or explicit. Keywords to change access permissions include <strong><code>public</code>, <code>protected</code>, and <code>private</code></strong>.</p>
 </li>
 </ul>
-<h3 id=exercises>Exercises</h3>
-<h5 id=question-1>Question 1</h5>
-<p><strong>1)</strong> What access modifier would I need to use if I wanted a method to <strong>only</strong> be visible within the current class, and <strong>not</strong> visible to any subclasses or other classes in the package.</p>
-<ul>
-<li><code>protected</code></li>
-<li><code>public</code></li>
-<li><code>private</code></li>
-<li>No modifier</li>
-</ul>
-<details>
-<summary>Click to show answer</summary>
-<div class="alert alert-success" role=alert><h6 id=correct-answer-private>Correct answer: <strong><code>private</code></strong></h6>
-<p>Here, <code>private</code> is the best fit, as it only allows access to our method from within the class itself, and does not allow the member to be inherited by subclasses.</div>
-</details>
-<br>
-<h5 id=question-2>Question 2</h5>
-<p>Examine the following code:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>/** A generic Square class */</span>
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Square</span> <span style=color:#f92672>{</span>
-  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getArea</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> width<span style=color:#f92672>,</span> <span style=color:#66d9ef>int</span> length<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>return</span> width <span style=color:#f92672>*</span> length
-  <span style=color:#f92672>}</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p><strong>2a)</strong> What is the expected variable <strong>type</strong> that will be returned by the <code>getArea</code> method?</p>
-<ul>
-<li><code>static</code></li>
-<li><code>int</code></li>
-<li><code>class</code></li>
-<li><code>void</code></li>
-</ul>
-<details>
-<summary>Click to show answer</summary>
-<div class="alert alert-success" role=alert><h6 id=correct-answer-int>Correct answer: <strong><code>int</code></strong></h6>
-<p><code>public static </code><strong><code>int</code></strong><code> getArea(int width, int length)</code></p>
-<p>Looking at the <code>getArea</code> function&rsquo;s definition statement, we see that the function name is immediately prefixed with <code>int</code>, which specifies the return type.</p>
-</div>
-</details>
-<br>
-<p><strong>2b)</strong> If I want to call the <code>getArea</code> method of the <code>Square</code> class with a width of <code>5</code> and length of <code>8</code> from a different class, what would the statement look like? <em>(You may assume that the class has been imported)</em></p>
-<ul>
-<li><code>getArea(5, 8);</code></li>
-<li><code>Square.getArea(5, 8);</code></li>
-<li><code>getArea.Square(5, 8);</code></li>
-<li><code>Square(5, 8).getArea();</code></li>
-</ul>
-<details>
-<summary>Click to show answer</summary>
-<div class="alert alert-success" role=alert><h6 id=correct-answer-squaregetarea5-8>Correct answer: <strong><code>Square.getArea(5, 8);</code></strong></h6>
-<p>Because we are calling the <code>getArea</code> method from outsede of the class, the call must be selected. Following the order of selection, <code>getArea</code> is a method that lies within the object represented by <code>Square</code>. Thus, we know the answer must follow the format <code>Square.getArea()</code>.</p>
-<p><strong>Note:</strong> The <em>correct</em> way to make this square class behave would be to make it similar to functioning like the last answer option, and allow for different <code>Square</code> instances to be created. However, because <code>getArea</code> is a static method and takes in the values directly, this is outside the scope of this <code>Square</code> class.</p>
-</div>
-</details>
-<br>
 </div><aside class="pagenav flex-shrink-0 p-3 bg-white" style=width:320px>
 <div class="d-block h6 my-2 pb-2 border-bottom">
 On this page:
@@ -215,7 +171,6 @@ On this page:
 <li><a href=#logistics>Logistics</a></li>
 <li><a href=#discussing-hello-world>Discussing &ldquo;Hello, world!&rdquo;</a></li>
 <li><a href=#key-takeaways>Key Takeaways</a></li>
-<li><a href=#exercises>Exercises</a></li>
 </ul>
 </li>
 </ul>
