@@ -1,1 +1,6 @@
-<p class="footer text-center mt-3">Copyright (c) {{ now.Format "2006"}} Adam Angle</p>
+<p class="footer text-center mt-3">
+    Copyright (c) {{ now.Format "2006"}} {{ .Site.Params.creatorName }}
+    {{ if .Site.Params.contributeURL }}
+    | <a href="{{ .Site.Params.contributeURL }}">Contribute on GitHub</a>
+    {{ end }}
+</p>

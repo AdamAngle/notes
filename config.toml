@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = "Adam's Notes"
 theme = 'notesTheme'
 
+[params]
+  creatorName = 'Adam Angle'
+  contributeURL = 'https://github.com/adamangle/notes'
+
 [menu]
   [[menu.main]]
     name = "Notes"
