@@ -6,6 +6,7 @@ theme = 'notesTheme'
 [params]
   creatorName = 'Adam Angle'
   contributeURL = 'https://github.com/adamangle/notes'
+  customCSS = ['/font.css']
 
 [menu]
   [[menu.main]]
