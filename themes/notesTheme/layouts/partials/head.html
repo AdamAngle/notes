@@ -11,11 +11,17 @@
 
     <!-- Custom CSS -->
     {{ range .Site.Params.customCSS -}}
-    {{ $style := resources.Get . }}
+    {{- $style := resources.Get . -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" media="screen">
     {{- end }}
 
-    {{ $title := print .Site.Title " | " .Title }}
-    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+    {{ $sectionTitle := "" -}}
+    {{- if .CurrentSection -}}
+    {{- $sectionTitle = printf "%s%s" " | " .CurrentSection.Title -}}
+    {{- end -}}
+    {{- $title := printf "%s%s%s%s" .Title $sectionTitle " | " .Site.Title -}}
+    {{- if .IsHome -}}
+    {{- $title = .Site.Title -}}
+    {{- end -}}
     <title>{{ $title }}</title>
 </head>
