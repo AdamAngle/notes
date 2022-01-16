@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="container">
-  <h1 class="display-6">Select a subject</h1>
+  <h1 itemprop="name" class="display-6">Select a subject</h1>
   <hr />
   {{ range .Site.Taxonomies.categories.Alphabetical.Reverse }}
     <h3 class="mt-half">
