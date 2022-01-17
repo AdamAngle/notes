@@ -16,12 +16,19 @@
     {{- end }}
 
     {{ $sectionTitle := "" -}}
-    {{- if .CurrentSection -}}
+    {{- if .Section -}}
     {{- $sectionTitle = printf "%s%s" " | " .CurrentSection.Title -}}
     {{- end -}}
-    {{- $title := printf "%s%s%s%s" .Title $sectionTitle " | " .Site.Title -}}
+
+    {{ $pageTitle := .Title }}
+    {{ if eq .Kind "section" }}
+        {{ $pageTitle = .Params.page_title }}
+    {{ end }}
+
+    {{- $title := printf "%s%s%s%s" $pageTitle $sectionTitle " | " .Site.Title -}}
     {{- if .IsHome -}}
     {{- $title = printf "%s%s" "Home | " .Site.Title -}}
     {{- end -}}
+
     <title>{{ $title }}</title>
 </head>
