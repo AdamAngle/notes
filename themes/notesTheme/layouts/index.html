@@ -8,23 +8,28 @@
     </h3>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
       {{ range $page := .Pages }}
-      <div class="col">
+      <div class="col" vocab="https://schema.org/" typeof="Course">
         <div class="card card-course text-center w-100{{ if $page.Params.status }} {{ $page.Params.status }}{{ end }}">
           <div class="card-body">
             <h4 class="card-title">
-              {{ $page.Title }}
+              <span property="name">{{ $page.Title }}</span>
               {{ if $page.Params.class_notes_link }}
               <!-- {{ $icon := printf "<a href=\"%s\" target=\"_blank\" data-bs-toggle=\"tooltip\" data-bs-placement=\"top\" title=\"classes.berkeley.edu\"><i class=\"ml-1\" data-feather=\"external-link\"></i></a>" $page.Params.class_notes_link | safeHTML }}
               {{ $icon }} -->
               {{ end }}
             </h4>
-            <a href="{{ $page.RelPermalink }}" class="stretched-link"></a>
+            <span style="display:none;" property="provider" typeof="EducationalOrganization">
+              <h6 property="name">University of California, Berkeley</h6>
+            </span>
+            <a property="url" href="{{ $page.RelPermalink }}" class="stretched-link"></a>
             <h6 class="card-subtitle mb-2 text-muted">
-              {{ $page.Params.instructor }}
+              <span property="instructor" typeof="Person">
+                <span property="name">{{ $page.Params.instructor }}</span>
+              </span>
               <br>
               {{ $page.Params.section }}
             </h6>
-            <p class="card-text">{{ $page.Params.description }}</p>
+            <p property="description" class="card-text">{{ $page.Params.description }}</p>
           </div>
         </div>
       </div>

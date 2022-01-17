@@ -3,7 +3,7 @@
     {{- partial "head.html" . -}}
     <body itemscope="" itemtype="https://schema.org/WebPage">
         {{- partial "header.html" . -}}
-        <div itemprop="mainEntity" id="content">
+        <div id="content">
         {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
