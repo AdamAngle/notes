@@ -169,10 +169,10 @@ div.card-course:hover::after {
     line-height: 1.25;
 }
 
-#TableOfContents ul {
+/* #TableOfContents ul {
     padding-left: 0;
     list-style: none;
-}
+} */
 
 #TableOfContents a:not(:hover) {
     text-decoration: none;
@@ -255,4 +255,22 @@ table tbody tr:last-of-type td:last-of-type {
 table tbody tr:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     position: relative;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+blockquote:before {
+    color: #ccc;
+    content: "";
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
 }
