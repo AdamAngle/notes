@@ -1,0 +1,156 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="An online repository of Adam Angle's notes from University of California, Berkeley undergraduate EECS classes.">
+<link rel=stylesheet type=text/css href=/css/bootstrap.min.css>
+<link rel=stylesheet type=text/css href=/css/styles.css>
+<link rel=stylesheet href=/font.css integrity crossorigin=anonymous media=screen>
+<title>Week 01-1: Introduction to Imaging | EECS 16A | Adam's Notes</title>
+</head><body itemscope itemtype=https://schema.org/WebPage><nav id=nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+<h3 class="d-flex justify-content-between justify-content-lg-center container">
+Adam's Notes
+<button class="navbar-toggler f-right" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+</h3>
+<div id=nav-border class=container>
+<div class="collapse navbar-collapse" id=navbarSupportedContent>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-evenly">
+<li class=nav-item>
+<a class=nav-link href=/>
+<i data-feather=pen-tool></i>
+Notes
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/about/>
+<i data-feather=info></i>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav><div id=content>
+<div class=container-fluid>
+<div class=row><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-flex flex-row align-items-left pb-3 mb-3 border-bottom">
+<a href=https://notes.adamangle.com/><i data-feather=corner-down-left aria-label="Return to course list"></i></a>
+<span class=ms-1>
+<span class="fs-5 fw-semibold">
+EECS 16A
+</span>
+<br>
+<small class="fw-semibold text-muted">Designing Information Devices and Systems I</small>
+</span>
+</div>
+<ul class="list-unstyled ps-0 side-page-nav">
+<li>
+<a href=/eecs16a class="link-dark rounded">
+Overview
+</a>
+</li>
+<li>
+<a href=/eecs16a/01-01/ class="link-dark rounded active">Week 01-1: Introduction to Imaging</a>
+</li>
+</ul>
+</aside><div class=col>
+<h1 itemprop=name>Week 01-1: Introduction to Imaging</h1>
+<p><em>This section is primarily an introduction to the course format. No technical concepts were formally introduced during the lecture.</em></p>
+<h2 id=logistics>Logistics</h2>
+<h3 id=remote-discussions>Remote Discussions</h3>
+<ul>
+<li>Remote discussions held on the week of January 23rd will be both live and recorded. If you cannot attend synchronously, a Google Form will be posted on the website to get attendance credit.</li>
+</ul>
+<h3 id=policies>Policies</h3>
+<ul>
+<li>Exams will be <strong>in person</strong>.</li>
+<li>Homework will be submitted through Gradescope.</li>
+<li>The syllabus is posted on the <a href=https://eecs16a.org/>course website</a>.
+<ul>
+<li>Homework 0 revolves around reading the syllabus and agreeing to course policies. <strong>This is due on January 21st.</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id=homework>Homework</h3>
+<ul>
+<li>Due Fridays at 11:59pm.</li>
+<li>Self grading and resubmissions are due on Mondays at 11:59pm.
+<ul>
+<li><strong>Graders verify your self-grades!</strong></li>
+</ul>
+</li>
+<li>Homework parties are held on Thursdays from 2:00pm to 4:00pm at the <a href=https://goo.gl/maps/3uVfE9ktcgGR5xE16>Wozniak Lounge</a>.</li>
+</ul>
+<h3 id=weekly-events>Weekly Events</h3>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Time</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lectures</td>
+<td>Tues/Thurs 9:30am - 11:00am</td>
+<td>No, but strongly recommended to keep up with the class</td>
+</tr>
+<tr>
+<td>Discussions</td>
+<td><a href=https://eecs16a.org/#colored-calendar>Schedule</a></td>
+<td>Yes, <a href=https://eecs16a.org/policies.html#participation>counts for participation points</a></td>
+</tr>
+<tr>
+<td>Labs</td>
+<td>Based on registration</td>
+<td><a href=https://eecs16a.org/policies.html#labDiscussion>Yes</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id=academic-honesty>Academic Honesty</h3>
+<p>Per the slides from lecture:</p>
+<blockquote>
+<p>We treat all our students with utmost trust and respect, and expect students to return the same trust and respect. In EECS16A we will have <em><strong>zero-tolerance</strong></em> for academic dishonesty. There will be <em><strong>dire consequences</strong></em> for students that violate that trust and the Berkeley code of conduct. Both professors Arias and Lustig are committed to enforcing academic honesty, and <em><strong>dishonesty cases will be punished in their fullest &ndash; no excuses or special circumstances will be considered</strong></em>. Always seek help, never cheat.</p>
+</blockquote>
+<h3 id=learning>Learning</h3>
+<p>Remember: You are at Berkeley! Everyone here is smart:</p>
+<ul>
+<li>Students come from all different backgrounds.</li>
+<li>Professors also make mistakes. They are open to feedback!</li>
+<li>If you feel like you are struggling or falling behind, don&rsquo;t be afraid to ask for help!</li>
+</ul>
+<p>Most students tend to study better in groups. You may optionally enter your information in Homework 0 to be matched into a study group. This is a great way to meet new friends and make study mates!</p>
+<h2 id=final-thoughts>Final Thoughts</h2>
+<p>Just as Professor Lustig described during the first lecture, <strong>slope is more important than intercept</strong>. This class gives students more practice with <strong>multi-step thinking</strong>, which makes this class stand out among others. This skill be applied later on for solving complex real-world problems. For this reason, many exercises will require multiple steps, each involving some aspect of interpretation or analysis. It may be difficult, but in the end you will greatly benefit from it. If things start feeling like too much, once again, <strong>course staff is available to help</strong>!</p>
+</div><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-block h6 my-2 pb-2 border-bottom">
+On this page:
+</div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#logistics>Logistics</a>
+<ul>
+<li><a href=#remote-discussions>Remote Discussions</a></li>
+<li><a href=#policies>Policies</a></li>
+<li><a href=#homework>Homework</a></li>
+<li><a href=#weekly-events>Weekly Events</a></li>
+<li><a href=#academic-honesty>Academic Honesty</a></li>
+<li><a href=#learning>Learning</a></li>
+</ul>
+</li>
+<li><a href=#final-thoughts>Final Thoughts</a></li>
+</ul>
+</nav>
+</aside></div>
+</div>
+</div><p class="footer text-center mt-3">
+Copyright (c) 2022 Adam Angle
+| <a href=https://github.com/adamangle/notes>Contribute on GitHub</a>
+</p>
+<script src=/js/bootstrap.bundle.min.js></script>
+<script src=/js/feather.min.js></script>
+<script>var tooltipTriggerList,tooltipList;feather.replace(),tooltipTriggerList=[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),tooltipList=tooltipTriggerList.map(function(a){return new bootstrap.Tooltip(a)})</script>
+</body>
+</html>
