@@ -1,0 +1,201 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="An online repository of Adam Angle's notes from University of California, Berkeley undergraduate EECS classes.">
+<link rel=stylesheet type=text/css href=/css/bootstrap.min.css>
+<link rel=stylesheet type=text/css href=/css/styles.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<link rel=stylesheet href=/font.css integrity crossorigin=anonymous media=screen>
+<title>Week 01-1: Math 1A Review | Math 1B | Adam's Notes</title>
+</head><body itemscope itemtype=https://schema.org/WebPage><nav id=nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+<h3 class="d-flex justify-content-between justify-content-lg-center container">
+Adam's Notes
+<button class="navbar-toggler f-right" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+</h3>
+<div id=nav-border class=container>
+<div class="collapse navbar-collapse" id=navbarSupportedContent>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-evenly">
+<li class=nav-item>
+<a class=nav-link href=/>
+<i data-feather=pen-tool></i>
+Notes
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/about/>
+<i data-feather=info></i>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav><div id=content>
+<div class=container-fluid>
+<div class=row><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-flex flex-row align-items-left pb-3 mb-3 border-bottom">
+<a href=https://notes.adamangle.com/><i data-feather=corner-down-left aria-label="Return to course list"></i></a>
+<span class=ms-1>
+<span class="fs-5 fw-semibold">
+Math 1B
+</span>
+<br>
+<small class="fw-semibold text-muted">Calculus</small>
+</span>
+</div>
+<ul class="list-unstyled ps-0 side-page-nav">
+<li>
+<a href=/math1b class="link-dark rounded">
+Overview
+</a>
+</li>
+<li>
+<a href=/math1b/01-01/ class="link-dark rounded active">Week 01-1: Math 1A Review</a>
+</li>
+</ul>
+</aside><div class=col>
+<h1 itemprop=name>Week 01-1: Math 1A Review</h1>
+<h2 id=key-concepts-from-chapter-5>Key Concepts from Chapter 5</h2>
+<h3 id=section-51>Section 5.1</h3>
+<h4 id=area-under-a-curve>Area Under a Curve</h4>
+<p>The area \(a\) of the region \(S\) that lies under the graph of the continuous function \(f\) is</p>
+<p>
+\begin{align}
+A &= \lim_{n \to \inf} [ f(x_1)\Delta x + f(x_2)\Delta x + \ldots + f(x_n)\Delta x ] \\
+&= \lim_{n \to \inf} \Delta x \sum_{i=1}^{n} f(x_i)
+\end{align}
+</p>
+<h4 id=distance-traveled>Distance Traveled</h4>
+<p>
+\begin{align}
+d = \lim_{n \to \inf} \sum_{i=1}^{n} \Delta t f(t_i)
+\end{align}
+</p>
+<h3 id=section-52>Section 5.2</h3>
+<h4 id=definite-integral>Definite Integral</h4>
+<p>
+\begin{align}
+\int_{a}^{b} f(x) dx = \lim_{n \to \inf} \sum_{i=1}^{n} f(x_i) \Delta x
+\end{align}
+</p>
+<h4 id=midpoint-rule>Midpoint Rule</h4>
+<p>
+\begin{align}
+\int_{a}^{b} f(x) dx \approx \sum_{i=1}^{n} f(\underbrace{\bar{x}_i}_{\text{Midpoint Value}}) \Delta x
+\end{align}
+</p>
+<h3 id=section-53>Section 5.3</h3>
+<h4 id=fundamental-theorem-of-calculus-part-1>Fundamental Theorem of Calculus (Part 1)</h4>
+<p>If \(f\) is continuous on \([a, b]\), then the function \(g\) defined by</p>
+<p>
+\begin{align}
+g(x) = \int_{x}^{a} f(t) dt \quad a \leq x \leq b
+\end{align}
+</p>
+<p>is continuous on \([a, b]\) and differentiable on \((a, b)\), and \(g'(x) = f(x)\).</p>
+<h4 id=fundamental-theorem-of-calculus-part-2>Fundamental Theorem of Calculus (Part 2)</h4>
+<p>If \(f\) is continuous on \([a, b]\), then</p>
+<p>
+\begin{align}
+\int_{a}^{b} f(x) dx = F(b) - F(a)
+\end{align}
+</p>
+<p>where \(F\) is any antiderivative of \(f\), that is, a function such that \(F'=f\).</p>
+<h3 id=section-54>Section 5.4</h3>
+<h4 id=antiderivative-reference>Antiderivative Reference</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$$\int x^n dx = \frac{x^{n+1}}{n+1} + C \enspace (n \ne -1)$$</td>
+<td>$$\int \frac{1}{x} dx = \ln |x| + C$$</td>
+</tr>
+<tr>
+<td>$$\int e^x dx = e^x + C$$</td>
+<td>$$\int b^x dx = \frac{b^x}{\ln b} + C$$</td>
+</tr>
+<tr>
+<td>$$\int \sin x dx = -\cos x + C$$</td>
+<td>$$\int \cos x dx = \sin x + C$$</td>
+</tr>
+<tr>
+<td>$$\int \sec^2 x dx = \tan x + C$$</td>
+<td>$$\int \csc^2 x dx = -\cot x + C$$</td>
+</tr>
+<tr>
+<td>$$\int \sec x \tan x dx = \sec x + C$$</td>
+<td>$$\int \csc x \cot x dx = -\csc x + C$$</td>
+</tr>
+<tr>
+<td>$$\int \sinh x dx = \cosh x + C$$</td>
+<td>$$\int \cosh x dx = \sinh x + C$$</td>
+</tr>
+<tr>
+<td>$$\int \tan x dx = \ln |\sec x| + C$$</td>
+<td>$$\int \cot x dx = \ln |\sin x| + C$$</td>
+</tr>
+<tr>
+<td>$$\int \frac{1}{x^2+a^2} dx = \frac{1}{a} \arctan{\frac{x}{a}} + C$$</td>
+<td>$$\int \frac{1}{\sqrt{a^2-x^2}} dx = \arcsin{\frac{x}{a}} + C,\enspace a > 0$$</td>
+</tr>
+</tbody>
+</table>
+<h4 id=net-change-theorem>Net Change Theorem</h4>
+<p>
+\begin{align}
+\int_{a}^{b} F'(x) dx = F(b) - F(a)
+\end{align}
+</p>
+<h3 id=section-55>Section 5.5</h3>
+<h4 id=the-substitution-rule>The Substitution Rule</h4>
+<p>If \(u=g(x)\) is a differentiable function whose range is an interval \(I\) and \(f\) is continuous at \(I\), then:</p>
+<p>
+\begin{align}
+\int f(g(x))g'(x) dx = \int f(u) du
+\end{align}
+</p>
+<h5 id=tips-for-choosing-u>Tips for choosing \(u\)</h5>
+<ul>
+<li>A function whose derivative appears in the integrand.</li>
+<li>A function that is the inner function of a composite function.</li>
+<li>A function raised to the highest power.</li>
+<li>A function in the denominator.</li>
+<li>A function that is under a radical.</li>
+</ul>
+</div><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-block h6 my-2 pb-2 border-bottom">
+On this page:
+</div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#key-concepts-from-chapter-5>Key Concepts from Chapter 5</a>
+<ul>
+<li><a href=#section-51>Section 5.1</a></li>
+<li><a href=#section-52>Section 5.2</a></li>
+<li><a href=#section-53>Section 5.3</a></li>
+<li><a href=#section-54>Section 5.4</a></li>
+<li><a href=#section-55>Section 5.5</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside></div>
+</div>
+</div><p class="footer text-center mt-3">
+Copyright (c) 2022 Adam Angle
+| <a href=https://github.com/adamangle/notes>Contribute on GitHub</a>
+</p>
+<script src=/js/bootstrap.bundle.min.js></script>
+<script src=/js/feather.min.js></script>
+<script>var tooltipTriggerList,tooltipList;feather.replace(),tooltipTriggerList=[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),tooltipList=tooltipTriggerList.map(function(a){return new bootstrap.Tooltip(a)})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+</body>
+</html>
