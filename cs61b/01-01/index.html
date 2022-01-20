@@ -57,7 +57,8 @@ Overview
 </aside><div class=col>
 <h1 itemprop=name>Week 01-1: Introduction</h1>
 <p><em>The first week primarily acts as an adjustment period to get used to the class structure, Java syntax, and your preferred coding environment.</em></p>
-<h3 id=logistics>Logistics</h3>
+<div class="alert alert-info" role=alert>I am reworking these notes a bit to make them more readable and easier to follow (and to include the lab material). These were created prior to the semester starting, so things will be changed around. Bear with me while I figure out the best way to organize them.</div>
+<h2 id=logistics>Logistics</h2>
 <ul>
 <li>
 <p>Labs have begun! Register for a CS61B Unix account via the <a href=https://inst.eecs.berkeley.edu/webacct>EECS Instructional WebAcct system</a>.</p>
@@ -66,26 +67,27 @@ Overview
 <p>Lectures will be recorded. Check the bCourses Media Gallery page to stream them!</p>
 </li>
 </ul>
-<h3 id=discussing-hello-world>Discussing &ldquo;Hello, world!&rdquo;</h3>
+<h2 id=discussing-hello-world>Discussing &ldquo;Hello, world!&rdquo;</h2>
 <p>Normally, if we want to print something to the console in Python, we would write something like the following:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;Hello, world!&#34;</span>)
 </code></pre></div><p>The nice thing about Python&rsquo;s syntax is that it is quite intuitive. Because it is, by nature, an interpreted scripting language, commands like <code>print</code> can be run in a top-down order. Let&rsquo;s take a look at the equivalent in Java:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#75715e>/**
 </span><span style=color:#75715e> * MyFancyApp implements a simple application to print
 </span><span style=color:#75715e> * &#34;Hello, world!&#34; to the standard console output.
+</span><span style=color:#75715e> * @author Adam Angle
 </span><span style=color:#75715e> */</span>
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyFancyApp</span> <span style=color:#75715e>// &lt;-- Class Definition
-</span><span style=color:#75715e></span><span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#75715e>// &lt;-- Function Definition
-</span><span style=color:#75715e></span>    <span style=color:#f92672>{</span>
+<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MyFancyApp</span> <span style=color:#75715e>/* &lt;-- Class Definition */</span>
+<span style=color:#f92672>{</span>
+    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span> <span style=color:#75715e>/* &lt;-- Method Definition */</span>
+    <span style=color:#f92672>{</span>
         System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Hello, world!&#34;</span><span style=color:#f92672>);</span>
     <span style=color:#f92672>}</span>
 <span style=color:#f92672>}</span>
 </code></pre></div><p>Well, it is a little more complicated here. Let&rsquo;s pick it apart!</p>
-<h5 id=comments>Comments</h5>
+<h3 id=comments>Comments</h3>
 <p><strong>Comments</strong> can start with <code>//</code> and go at the end of a line (equivalent to <code>#</code> in Python), or <strong>can span multiple lines</strong> when bracketed using <code>/*</code> and <code>*/</code>.</p>
 <p><strong>Documentation comments</strong> start with <code>/**</code>, and work the same way as other comments. However, many editors interpret them as providing useful documentation for anything following them. <strong>These are required per our style checks</strong>, so it is a good idea to get comfortable with using them.</p>
-<h5 id=classes>Classes</h5>
+<h3 id=classes>Classes</h3>
 <p>Every <strong>function</strong> and <strong>variable</strong> in Java is <strong>contained within some sort of class</strong>.</p>
 <p>Every <strong>class</strong> belongs to a <strong>package</strong>. In our example, the <code>MyFancyApp</code> class belongs to the <strong>anonymous package</strong> since it hasn&rsquo;t explicitly been assigned to a particular package.</p>
 <p>Example:</p>
@@ -98,14 +100,14 @@ Overview
 <span style=color:#75715e>/* Invalid Function Definition (outside of class) */</span>
 <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>invalidFunction</span><span style=color:#f92672>();</span>
 </code></pre></div><div class="alert alert-info" role=alert>Named packages will be covered later in the course.</div>
-<h5 id=methods-functions>Methods (Functions)</h5>
+<h3 id=methods-functions>Methods (Functions)</h3>
 <p>Unlike Python, Java functions must specify the <strong>types</strong> for the function&rsquo;s <strong>parameters</strong> and its <strong>returned values</strong>.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String<span style=color:#f92672>[]</span> args<span style=color:#f92672>)</span>
 </code></pre></div><p>The <code>void</code> keyword can be used to specify that there are <strong>no possible values returned</strong>. By this definition, in our example, the <strong><code>main</code></strong> function <strong>returns nothing</strong>. The <code>String</code> type can be thought of as being similar to the <code>str</code> type in Python. The <code>[]</code> trailing afterwards means <em><strong>array of</strong></em>.</p>
 <div class="alert alert-warning" role=alert>Be careful relating Java arrays to Python lists, as they aren&rsquo;t exactly alike. Unlike Python, which is a dynamically typed language, Java arrays are limited to having a <strong>fixed size</strong> and are <strong>typed</strong>, meaning you must specify the exact size of the array beforehand, and cannot store mixed datatypes in a single array.</div>
 <p>Using these definitions, we can deduce that our <code>main</code> function within the original <code>MyFancyApp</code> class takes in an array of strings and returns nothing.</p>
 <p>But what is the deal with the fact that the function is named <code>main</code>? Why not <code>myFancyMethod</code>, or <code>sayHelloToTheWorld</code>? Well, these would be valid function names, but the name <code>main</code> has a <strong>special meaning</strong> within Java. The <code>main</code> method is what gets called whenever someone <strong>runs the Java program</strong>.</p>
-<h5 id=selection>Selection</h5>
+<h3 id=selection>Selection</h3>
 <p>Selection works in a similar manner to Python:</p>
 <blockquote>
 <p><code>a.b</code> means &ldquo;something named <code>b</code> that lies within (or applies to) the object computed by <code>a</code>.&rdquo;</p>
@@ -113,7 +115,7 @@ Overview
 <div class="alert alert-info" role=alert>This may sound like a ton of jargain, but think of <code>a</code> as being a class named <code>Square</code>, and <code>b</code> representing a method named <code>getArea</code> (giving us something like <code>Square.getArea</code>). In this case, <code>getArea</code> lies within the object (a <code>Square</code>) computed by <code>a</code>.</div>
 <p>Using this knowledge, <code>System.out</code> means &ldquo;the variable called <code>out</code> that is found inside of the class named <code>System</code>.&rdquo;</p>
 <p>For the <code>println</code> method, it works the exact same way: &ldquo;the method named <code>println</code> that applies to the object referenced by the evaluated value of <code>System.out</code>.&rdquo;</p>
-<h5 id=access>Access</h5>
+<h3 id=access>Access</h3>
 <p>Every entity in Java has some sort of <strong>access permission</strong> given to it, which indicates which pieces of code can access it. This access is specified through the use of <strong>modifiers</strong>, like <code>public</code>. Each modifier specifies a different level of access for other parts of your code. <code>public</code> provides visibility to all classes everywhere, including through inheritance through subclasses. <code>private</code> specifies that the member can only be accessed from within its own class. An overview of the different access levels is provided in the table below:</p>
 <table>
 <thead>
@@ -141,9 +143,9 @@ Overview
 </tr>
 </tbody>
 </table>
-<h5 id=static-members>Static Members</h5>
+<h3 id=static-members>Static Members</h3>
 <p>The <code>static</code> keyword specifies that a member is assigned at the class level rather than at the instance level. This would be comparable to the <code>@classmethod</code> decorator in Python.</p>
-<h3 id=key-takeaways>Key Takeaways</h3>
+<h2 id=key-takeaways>Key Takeaways</h2>
 <ul>
 <li>
 <p>In this class, you are learning <em>programming</em> itself as a fundamental concept rather than learning a specific language or program. These are tools that can be used regardless of the language or platform you are using. In this class, Java is used primarily as a way to convey these ideas in an intuitive way.</p>
@@ -170,13 +172,18 @@ On this page:
 </div>
 <nav id=TableOfContents>
 <ul>
-<li>
-<ul>
 <li><a href=#logistics>Logistics</a></li>
-<li><a href=#discussing-hello-world>Discussing &ldquo;Hello, world!&rdquo;</a></li>
-<li><a href=#key-takeaways>Key Takeaways</a></li>
+<li><a href=#discussing-hello-world>Discussing &ldquo;Hello, world!&rdquo;</a>
+<ul>
+<li><a href=#comments>Comments</a></li>
+<li><a href=#classes>Classes</a></li>
+<li><a href=#methods-functions>Methods (Functions)</a></li>
+<li><a href=#selection>Selection</a></li>
+<li><a href=#access>Access</a></li>
+<li><a href=#static-members>Static Members</a></li>
 </ul>
 </li>
+<li><a href=#key-takeaways>Key Takeaways</a></li>
 </ul>
 </nav>
 </aside></div>
