@@ -1,0 +1,126 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="An online repository of Adam Angle's notes from University of California, Berkeley undergraduate EECS classes.">
+<link rel=stylesheet type=text/css href=/css/bootstrap.min.css>
+<link rel=stylesheet type=text/css href=/css/styles.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<link rel=stylesheet href=/font.css integrity crossorigin=anonymous media=screen>
+<title>Week 02-1: Values and Containers | Compsci 61B | Adam's Notes</title>
+</head><body itemscope itemtype=https://schema.org/WebPage><nav id=nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+<h3 class="d-flex justify-content-between justify-content-lg-center container">
+Adam's Notes
+<button class="navbar-toggler f-right" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+</h3>
+<div id=nav-border class=container>
+<div class="collapse navbar-collapse" id=navbarSupportedContent>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-evenly">
+<li class=nav-item>
+<a class=nav-link href=/>
+<i data-feather=pen-tool></i>
+Notes
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/about/>
+<i data-feather=info></i>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav><div id=content>
+<div class=container-fluid>
+<div class=row><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-flex flex-row align-items-left pb-3 mb-3 border-bottom">
+<a href=https://notes.adamangle.com/><i data-feather=corner-down-left aria-label="Return to course list"></i></a>
+<span class=ms-1>
+<span class="fs-5 fw-semibold">
+Compsci 61B
+</span>
+<br>
+<small class="fw-semibold text-muted">Data Structures</small>
+</span>
+</div>
+<ul class="list-unstyled ps-0 side-page-nav">
+<li>
+<a href=/cs61b class="link-dark rounded">
+Overview
+</a>
+</li>
+<li>
+<a href=/cs61b/01-01/ class="link-dark rounded">Week 01-1: Introduction</a>
+</li>
+<li>
+<a href=/cs61b/02-01/ class="link-dark rounded active">Week 02-1: Values and Containers</a>
+</li>
+<li>
+<a href=/cs61b/03-01/ class="link-dark rounded">Week 3 - Unit Testing / Developing a Sort</a>
+</li>
+</ul>
+</aside><div class=col>
+<h1 itemprop=name>Week 02-1: Values and Containers</h1>
+<h2 id=multidimensional-arrays>Multidimensional Arrays</h2>
+<p>What if we have something like this:</p>
+<p>
+$$
+A =
+\begin{bmatrix}
+1 & 2 & 3 \\
+   4 & 5 & 6 \\
+   7 & 8 & 9
+\end{bmatrix}
+$$
+</p>
+<p>These are not primitive in Java, but we can make <strong>arrays of arrays</strong>!</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>
+<span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> A <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][];</span>
+A<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> <span style=color:#f92672>{</span>1<span style=color:#f92672>,</span> 2<span style=color:#f92672>,</span> 3<span style=color:#f92672>};</span>
+A<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> <span style=color:#f92672>{</span>4<span style=color:#f92672>,</span> 5<span style=color:#f92672>,</span> 6<span style=color:#f92672>};</span>
+A<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> <span style=color:#f92672>{</span>7<span style=color:#f92672>,</span> 8<span style=color:#f92672>,</span> 9<span style=color:#f92672>};</span>
+
+<span style=color:#75715e>// or
+</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> A <span style=color:#f92672>=</span> <span style=color:#f92672>{</span> <span style=color:#f92672>{</span>1<span style=color:#f92672>,</span> 2<span style=color:#f92672>,</span> 3<span style=color:#f92672>},</span>
+              <span style=color:#f92672>{</span>4<span style=color:#f92672>,</span> 5<span style=color:#f92672>,</span> 6<span style=color:#f92672>},</span>
+              <span style=color:#f92672>{</span>7<span style=color:#f92672>,</span> 8<span style=color:#f92672>,</span> 9<span style=color:#f92672>}</span> <span style=color:#f92672>};</span>
+
+</code></pre></div><p>We can reference the individual objects using <code>A[row][col]</code>.</p>
+<h3 id=exotic-multidimensional-arrays>Exotic Multidimensional Arrays</h3>
+<p>Since every element of an array is independent, we don&rsquo;t need to have a fixed &ldquo;width&rdquo;, giving a &ldquo;ragged&rdquo; array.</p>
+<div class="alert alert-primary" role=alert><h4 id=what-does-this-print>What does this print?</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> ZERO <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][];</span>
+ZERO<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> ZERO<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> ZERO<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> <span style=color:#f92672>{</span>0<span style=color:#f92672>,</span> 0<span style=color:#f92672>,</span> 0<span style=color:#f92672>};</span>
+ZERO<span style=color:#f92672>[</span>0<span style=color:#f92672>][</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 1<span style=color:#f92672>;</span>
+System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>ZERO<span style=color:#f92672>[</span>2<span style=color:#f92672>][</span>1<span style=color:#f92672>]);</span>
+</code></pre></div><p><strong>Answer:</strong> 1</p>
+<p><strong>Why:</strong> All of the rows are pointing to the same array object. Therefore, when we reassign <code>ZERO[0][1]</code>, it reassigns all of the row values. Therefore, <code>ZERO[2][1]</code> prints out <code>1</code>.</p>
+</div>
+</div><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-block h6 my-2 pb-2 border-bottom">
+On this page:
+</div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#multidimensional-arrays>Multidimensional Arrays</a>
+<ul>
+<li><a href=#exotic-multidimensional-arrays>Exotic Multidimensional Arrays</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside></div>
+</div>
+</div><p class="footer text-center mt-3">
+Copyright (c) 2022 Adam Angle
+| <a href=https://github.com/adamangle/notes>Contribute on GitHub</a>
+</p>
+<script src=/js/bootstrap.bundle.min.js></script>
+<script src=/js/feather.min.js></script>
+<script>var tooltipTriggerList,tooltipList;feather.replace(),tooltipTriggerList=[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),tooltipList=tooltipTriggerList.map(function(a){return new bootstrap.Tooltip(a)})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+</body>
+</html>
