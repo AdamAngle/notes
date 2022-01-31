@@ -19,10 +19,10 @@
       </a>
     </li>
     {{ range .CurrentSection.Pages.ByDate }}
-    {{ $active := eq $.URL .URL }}
-    <li>
-      <a href="{{ .RelPermalink }}" class="link-dark rounded{{if $active }} active{{ end }}">{{ .Title }}</a>
-    </li>
+      {{ $active := eq $.RelPermalink .RelPermalink }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="link-dark rounded{{if $active }} active{{ end }}">{{ .Title }}</a>
+      </li>
     {{ end }}
     <!--
     <li class="mb-1">
