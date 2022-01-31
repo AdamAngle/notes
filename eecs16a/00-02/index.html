@@ -1,0 +1,216 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="An online repository of Adam Angle's notes from University of California, Berkeley undergraduate EECS classes.">
+<link rel=stylesheet type=text/css href=/css/bootstrap.min.css>
+<link rel=stylesheet type=text/css href=/css/styles.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<link rel=stylesheet href=/font.css integrity crossorigin=anonymous media=screen>
+<title>Week 00-2: Linear Equations | EECS 16A | Adam's Notes</title>
+</head><body itemscope itemtype=https://schema.org/WebPage><nav id=nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+<h3 class="d-flex justify-content-between justify-content-lg-center container">
+Adam's Notes
+<button class="navbar-toggler f-right" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+</h3>
+<div id=nav-border class=container>
+<div class="collapse navbar-collapse" id=navbarSupportedContent>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-evenly">
+<li class=nav-item>
+<a class=nav-link href=/>
+<i data-feather=pen-tool></i>
+Notes
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/about/>
+<i data-feather=info></i>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav><div id=content>
+<div class=container-fluid>
+<div class=row><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-flex flex-row align-items-left pb-3 mb-3 border-bottom">
+<a href=https://notes.adamangle.com/><i data-feather=corner-down-left aria-label="Return to course list"></i></a>
+<span class=ms-1>
+<span class="fs-5 fw-semibold">
+EECS 16A
+</span>
+<br>
+<small class="fw-semibold text-muted">Designing Information Devices and Systems I</small>
+</span>
+</div>
+<ul class="list-unstyled ps-0 side-page-nav">
+<li>
+<a href=/eecs16a class="link-dark rounded">
+Overview
+</a>
+</li>
+<li>
+<a href=/eecs16a/00-01/ class="link-dark rounded">Week 00-1: Introduction to Imaging</a>
+</li>
+<li>
+<a href=/eecs16a/00-02/ class="link-dark rounded active">Week 00-2: Linear Equations</a>
+</li>
+</ul>
+</aside><div class=col>
+<h1 itemprop=name>Week 00-2: Linear Equations</h1>
+<div class="alert alert-warning" role=alert><em>This page is under construction</em></div>
+<h2 id=linear-equations>Linear Equations</h2>
+<ul>
+<li><a href=https://eecs16a.org/hw-practice.html#/set/0><em>Covers Practice Set 0, questions 1-3</em></a></li>
+</ul>
+<p>A linear equation is an equation where <strong>each variable has a degree of 1</strong>. Here are a couple examples of both linear and nonlinear equations:</p>
+<table>
+<thead>
+<tr>
+<th>Linear Equation</th>
+<th>Nonlinear Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$$4x+5y=6$$</td>
+<td>$$x^2+y^2=4$$</td>
+</tr>
+<tr>
+<td>$$8x=6y$$</td>
+<td>$$y*y=5$$</td>
+</tr>
+</tbody>
+</table>
+<h3 id=linear-functions>Linear Functions</h3>
+<p>To get a formal intuition of linear equations, we must cover what a linear function is. Linear functions are special in that <strong>if we scale the input to our function by some factor, the output of the function will be evenly scaled</strong>.</p>
+<p>To put this in fancy formal terms, we can define a linear function as a function \(f\) of one scalar argument with the property that for arbitrary scalars \(\alpha\) and \(x\),
+$$f(\alpha x) = \alpha * f(x)$$</p>
+<p>In other words, if the <strong>input</strong> to a linear function is <strong>multiplied by a scalar \(\alpha\)</strong>, the <strong>output</strong> will be <strong>multiplied by \(\alpha\) as well</strong>.</p>
+<p>We can get a more generic proof that demonstrates that any function with a single scalar input and output can be written in the form \(f(x)=kx\) for some constant \(k\).</p>
+<p>Let \(f(x)\) be an arbitrary linear function. By the definition of linear functions,
+$$f(x) = f(x * 1) = x * f(1).$$</p>
+<p>In this case, \(f(1)\) is our scalar constant, as it does not depend on \(x\). If we let \(k = f(1)\), we have shown that there exists a \(k\) such that
+$$f(x) = kx,$$</p>
+<p>regardless of what we choose \(f(x)\) to be, as long as it is a linear function.</p>
+<h3 id=affine-functions>Affine Functions</h3>
+<p>That is great and all, but why is \(f_1(x)=2x+3\) is not a linear function? It looks like a line to me! However, when we look at the function itself, we notice that it doesn&rsquo;t quite match up with our linear form:
+$$\underbrace{f_1(x) = 2x}_{f(x) = kx} \boxed{+ 3}$$</p>
+<p>We have a constant added to our function! So, is it still linear? Let&rsquo;s plug in some values to find out.</p>
+<p>Choosing \(x = 1\) and \(x = 2\), we see that
+$$f_1(1) = 5 \text{ and } f_1(2) = 7,$$</p>
+<p>so doubling our input increases the output by a factor of \(7/5\)! For this reason, <strong>this function is not linear even though it still behaves like a line on a graph</strong>.</p>
+<p>The key observation to make here is that we have <strong>the sum of a linear function of \(x\) added to a scalar constant</strong>. We call functions with this kind of behavior <strong>affine functions</strong>. Although \(f_1(x)\) is not linear, we can say that it is <strong>affine</strong>.</p>
+<p>Because we can express any linear function as being the sum of itself and a scalar constant of 0, <strong>all linear functions are also affine, but not all affine functions are linear</strong>.</p>
+<div class="alert alert-warning" role=alert>Affine functions tend to commonly be confused with linear functions since they both describe a line on a graph. However, this kind of classification is incorrect. Just remember, <strong>affine functions are not linear functions</strong>!</div>
+<h3 id=linear-equations-for-real-this-time>Linear Equations (for real this time)</h3>
+<p>Now that we know what both linear and affine functions are, we are ready to approach linear equations!</p>
+<p>A <strong>linear equation</strong> is equation where <strong>each side is a sum of scalar-valued linear functions of each of the unknowns plus a constant</strong>.</p>
+<p>We will deepen our understanding of linear equations with the following definition:</p>
+<div class="alert alert-primary" role=alert><h4 id=formal-ish-definition-of-a-linear-equation>Formal-ish Definition of a Linear Equation</h4>
+<p>Consider \(f(x_1, x_2, \mathellipsis, x_N) : \reals^n \rightarrow \reals\).</p>
+<p>\(f\) is linear if the following identity holds:</p>
+<ol>
+<li>
+<p>Homogeneity</p>
+<ul>
+<li>\(f(ax_1, \mathellipsis, ax_N) = af(x_1, \mathellipsis, x_N)\)</li>
+<li>(if you multiply all inputs to \(f\) by \(a\), it is the same thing as multiplying the function \(f\) itself by \(a\))</li>
+</ul>
+</li>
+<li>
+<p>Super Position</p>
+<ul>
+<li>if \(x_i = y_i + z_i\), then \(f(y_1+z_1, \mathellipsis, y_N + z_N) = f(y_1, \mathellipsis, y_N)+ f(z_1, \mathellipsis, z_N)\)</li>
+</ul>
+</li>
+</ol>
+<p>All of this is a fancy way to say that we can always express a linear equation as
+$$ f(x_1, x_2, \mathellipsis, x_N) = c_1x_1 + c_2x_2 + \mathellipsis + c_Nx_N $$</p>
+</div>
+<h2 id=vectors-and-matrices>Vectors and Matrices</h2>
+<p>Now, we will go over some new ways to represent systems of linear equations, helping us deal with them in a more compact form.</p>
+<h3 id=vectors>Vectors</h3>
+<p>A vector is an <strong>ordered list of numbers</strong>. Say we are given a collection of \(n\) real numbers : \(x_1, x_2, \mathellipsis, x_N\). We can represent this as:</p>
+<p>
+$$
+\vec{x} =
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_N
+\end{bmatrix}
+$$
+</p>
+<h3 id=matrices>Matrices</h3>
+<p>A matrix is a <strong>rectangular array of numbers</strong>, written as:</p>
+<p>
+$$
+\vec{A} =
+\begin{bmatrix}
+A_{11} & \dots & A_{1n} \\
+   \vdots & \ddots & \vdots \\
+   A_{m1} & \dots & A_{mn}
+\end{bmatrix}
+$$
+</p>
+<p>Each \(A_{ij}\) is a component, or element of the matrix \(A\), where \(i\) represents the row, and \(j\) represents the column.</p>
+<h3 id=representing-a-linear-system-as-a-matrix>Representing a Linear System as a Matrix</h3>
+<p>Consider the set of \(M\) linear equations with \(N\) variables:</p>
+<p>
+$$
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1N}x_N = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \dots + a_{2N}x_N = b_2 \\
+\vdots \\
+a_{M1}x_1 + a_{M2}x_2 + \dots + a_{MN}x_N = b_M
+$$
+</p>
+<p>We can write this in a compact way using an <strong>augmented matrix</strong> using only the coefficients:</p>
+<p>
+$$
+\left[\hspace{-5pt}\begin{array}{cccc|c}
+a_{11} & a_{12} & \dots & a_{1N} & b_1 \\
+a_{21} & a_{22} & \dots & a_{2N} & b_2 \\
+\vdots &  & \vdots &  & \vdots \\
+  a_{M1} & a_{M2} & \dots & a_{MN} & b_M
+\end{array}\hspace{-5pt}\right]
+$$
+</p>
+</div><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-block h6 my-2 pb-2 border-bottom">
+On this page:
+</div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#linear-equations>Linear Equations</a>
+<ul>
+<li><a href=#linear-functions>Linear Functions</a></li>
+<li><a href=#affine-functions>Affine Functions</a></li>
+<li><a href=#linear-equations-for-real-this-time>Linear Equations (for real this time)</a></li>
+</ul>
+</li>
+<li><a href=#vectors-and-matrices>Vectors and Matrices</a>
+<ul>
+<li><a href=#vectors>Vectors</a></li>
+<li><a href=#matrices>Matrices</a></li>
+<li><a href=#representing-a-linear-system-as-a-matrix>Representing a Linear System as a Matrix</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside></div>
+</div>
+</div><p class="footer text-center mt-3">
+Copyright (c) 2022 Adam Angle
+| <a href=https://github.com/adamangle/notes>Contribute on GitHub</a>
+</p>
+<script src=/js/bootstrap.bundle.min.js></script>
+<script src=/js/feather.min.js></script>
+<script>var tooltipTriggerList,tooltipList;feather.replace(),tooltipTriggerList=[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),tooltipList=tooltipTriggerList.map(function(a){return new bootstrap.Tooltip(a)})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+</body>
+</html>
