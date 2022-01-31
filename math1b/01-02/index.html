@@ -1,0 +1,148 @@
+<!doctype html><html lang=en><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="An online repository of Adam Angle's notes from University of California, Berkeley undergraduate EECS classes.">
+<link rel=stylesheet type=text/css href=/css/bootstrap.min.css>
+<link rel=stylesheet type=text/css href=/css/styles.css>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
+<link rel=stylesheet href=/font.css integrity crossorigin=anonymous media=screen>
+<title>Week 01: 7.1 - Integration by Parts | Math 1B | Adam's Notes</title>
+</head><body itemscope itemtype=https://schema.org/WebPage><nav id=nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+<h3 class="d-flex justify-content-between justify-content-lg-center container">
+Adam's Notes
+<button class="navbar-toggler f-right" type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+</h3>
+<div id=nav-border class=container>
+<div class="collapse navbar-collapse" id=navbarSupportedContent>
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-evenly">
+<li class=nav-item>
+<a class=nav-link href=/>
+<i data-feather=pen-tool></i>
+Notes
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/about/>
+<i data-feather=info></i>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav><div id=content>
+<div class=container-fluid>
+<div class=row><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-flex flex-row align-items-left pb-3 mb-3 border-bottom">
+<a href=https://notes.adamangle.com/><i data-feather=corner-down-left aria-label="Return to course list"></i></a>
+<span class=ms-1>
+<span class="fs-5 fw-semibold">
+Math 1B
+</span>
+<br>
+<small class="fw-semibold text-muted">Calculus</small>
+</span>
+</div>
+<ul class="list-unstyled ps-0 side-page-nav">
+<li>
+<a href=/math1b class="link-dark rounded">
+Overview
+</a>
+</li>
+<li>
+<a href=/math1b/01-01/ class="link-dark rounded">Week 01-1: Math 1A Review</a>
+</li>
+<li>
+<a href=/math1b/01-02/ class="link-dark rounded active">Week 01: 7.1 - Integration by Parts</a>
+</li>
+</ul>
+</aside><div class=col>
+<h1 itemprop=name>Week 01: 7.1 - Integration by Parts</h1>
+<div class="alert alert-warning" role=alert><em>This page is not finished yet.</em></div>
+<h2 id=integration-by-parts>Integration by Parts</h2>
+<p>The rule for integration parts comes from the Product Rule for differentiation.</p>
+<div class="alert alert-info" role=alert>The Product Rule states that if \(f\) and \(g\) are <strong>differentiable functions</strong>, then
+$$ \frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x). $$</div>
+<p>In the notation for definite integrals, this becomes
+$$ \int [f'(x)g(x) + f(x)g'(x)] dx = f(x)g(x), $$</p>
+<p>or
+$$ \int f'(x)g(x) dx + \int f(x)g'(x) dx = f(x)g(x). $$</p>
+<p>We can use this to create the <strong>formula for integration by parts</strong>:
+$$ \boxed{\int f(x)g'(x) dx = f(x)g(x) - \int f'(x)g(x) dx}. \tag*{1} $$</p>
+<p>If we let \(u=f(x)\) and \(v=g(x)\), by the Substitution Rule, the formula becomes:
+$$ \boxed{\int u dv = uv - \int v du}. \tag*{2} $$</p>
+<h3 id=solved-example-1>Solved Example 1</h3>
+<p>Find \( \int x \cos x dx \).</p>
+<h5 id=1st-method-solution>1st Method Solution</h5>
+<p>Choose \( f(x) = x \) and \( g'(x) = \cos x \). We then have \( f'(x) = 1 \) and \( g(x) = \sin x \). Thus, using Formula 1, we have:</p>
+<p>
+\begin{align}
+\int x \cos x dx &= x \sin x - \int \sin x dx \\
+&= x \sin x - (- \cos x) \\
+&= \boxed{x \sin x + \cos x + C}
+\end{align}
+</p>
+<p>Checking by differentiation, we get \( x \cos x \), thus verifying that we reached the correct answer.</p>
+<h5 id=2nd-method-solution-using-a-table>2nd Method Solution (using a table)</h5>
+<p>Let</p>
+<table>
+<thead>
+<tr>
+<th colspan=2>Variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+$$ u = x $$
+</td>
+<td>
+$$ dv = \cos x dx $$
+</td>
+</tr>
+<tr>
+<td>
+$$ du = dx $$
+</td>
+<td>
+$$ v = -\sin x dx $$
+</td>
+</tr>
+</tbody>
+</table>
+<p>And so,</p>
+<p>
+\begin{align}
+\int x \cos x dx &= \int \overbrace{x}^{u} \overbrace{\cos x dx}^{dv} = \overbrace{x}^{u} \sin x - \int \sin x dx \\
+&= x \sin x - (- \cos x) \\
+&= \boxed{x \sin x + \cos x + C}
+\end{align}
+</p>
+</div><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
+<div class="d-block h6 my-2 pb-2 border-bottom">
+On this page:
+</div>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#integration-by-parts>Integration by Parts</a>
+<ul>
+<li><a href=#solved-example-1>Solved Example 1</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside></div>
+</div>
+</div><p class="footer text-center mt-3">
+Copyright (c) 2022 Adam Angle
+| <a href=https://github.com/adamangle/notes>Contribute on GitHub</a>
+</p>
+<script src=/js/bootstrap.bundle.min.js></script>
+<script src=/js/feather.min.js></script>
+<script>var tooltipTriggerList,tooltipList;feather.replace(),tooltipTriggerList=[].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')),tooltipList=tooltipTriggerList.map(function(a){return new bootstrap.Tooltip(a)})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+</body>
+</html>
