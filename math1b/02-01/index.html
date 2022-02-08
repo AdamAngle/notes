@@ -6,7 +6,7 @@
 <link rel=stylesheet type=text/css href=/css/styles.css>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ crossorigin=anonymous>
 <link rel=stylesheet href=/font.css integrity crossorigin=anonymous media=screen>
-<title>Week 01-2: Integration by Parts | Math 1B | Adam's Notes</title>
+<title>Week 02-1: Partial Fraction Decomposition | Math 1B | Adam's Notes</title>
 </head><body itemscope itemtype=https://schema.org/WebPage><nav id=nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
 <h3 class="d-flex justify-content-between justify-content-lg-center container">
 Adam's Notes
@@ -55,82 +55,69 @@ Overview
 <a href=/math1b/01-01/ class="link-dark rounded">Week 01-1: Math 1A Review</a>
 </li>
 <li>
-<a href=/math1b/01-02/ class="link-dark rounded active">Week 01-2: Integration by Parts</a>
+<a href=/math1b/01-02/ class="link-dark rounded">Week 01-2: Integration by Parts</a>
 </li>
 <li>
-<a href=/math1b/02-01/ class="link-dark rounded">Week 02-1: Partial Fraction Decomposition</a>
+<a href=/math1b/02-01/ class="link-dark rounded active">Week 02-1: Partial Fraction Decomposition</a>
 </li>
 </ul>
 </aside><div class=col>
-<h1 itemprop=name>Week 01-2: Integration by Parts</h1>
-<h2 id=integration-by-parts>Integration by Parts</h2>
-<p>The rule for integration parts comes from the Product Rule for differentiation.</p>
-<div class="alert alert-info" role=alert>The Product Rule states that if \(f\) and \(g\) are <strong>differentiable functions</strong>, then
-$$ \frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x). $$</div>
-<p>In the notation for definite integrals, this becomes
-$$ \int [f'(x)g(x) + f(x)g'(x)] dx = f(x)g(x), $$</p>
-<p>or
-$$ \int f'(x)g(x) dx + \int f(x)g'(x) dx = f(x)g(x). $$</p>
-<p>We can use this to create the <strong>formula for integration by parts</strong>:
-$$ \boxed{\int f(x)g'(x) dx = f(x)g(x) - \int f'(x)g(x) dx}. \tag*{1} $$</p>
-<p>If we let \(u=f(x)\) and \(v=g(x)\), by the Substitution Rule, the formula becomes:
-$$ \boxed{\int u dv = uv - \int v du}. \tag*{2} $$</p>
-<h3 id=solved-example-1>Solved Example 1</h3>
-<p>Find \( \int x \cos x dx \).</p>
-<h5 id=1st-method-solution>1st Method Solution</h5>
-<p>Choose \( f(x) = x \) and \( g'(x) = \cos x \). We then have \( f'(x) = 1 \) and \( g(x) = \sin x \). Thus, using Formula 1, we have:</p>
-<p>
-\begin{align}
-\int x \cos x dx &= x \sin x - \int \sin x dx \\
-&= x \sin x - (- \cos x) \\
-&= \boxed{x \sin x + \cos x + C}
-\end{align}
-</p>
-<p>Checking by differentiation, we get \( x \cos x \), thus verifying that we reached the correct answer.</p>
-<h5 id=2nd-method-solution-using-a-table>2nd Method Solution (using a table)</h5>
-<p>Let</p>
+<h1 itemprop=name>Week 02-1: Partial Fraction Decomposition</h1>
+<p>We will take a look at how to take integrals of <strong>any rational function</strong> by expressing it as a sum of simpler fractions.</p>
+<h2 id=partial-fraction-decomposition>Partial Fraction Decomposition</h2>
+<p>Let&rsquo;s demonstrate this with a rational function of the form
+$$f(x)=\frac{P(x)}{Q(x)}$$</p>
+<p>where both P and Q are <strong>polynomials</strong> and <strong>the degree of \(P\) is less than the degree of \(Q\)</strong>. This type of rational function is called <strong>proper</strong>. It is important to note that <strong>partial fractions can only be used if the degree of the numerator is strictly less than the degree of the denominator</strong>.</p>
+<div class="alert alert-info" role=alert><h5 id=recall-degree-of-polynomials>Recall (Degree of Polynomials)</h5>
+<p>If we have a polynomial of the form
+$$P(x)=a_nx^n + a_{n-1}x^{n-1} + \dots + a_1x + a_0$$</p>
+<p>where \(a_n \neq 0\), then the degree of \(P\) is \(n\).</p>
+</div>
+<p>In the event that we do end up with a rational function where the degree of the numerator is greater than or equal to the degree of the denominator, we can use <strong>long division</strong> until a remainder \(R(x)\) is obtained where the degree of \(R\) is less than the degree of \(Q\) (the denominator). This division statement is
+$$ f(x) = \frac{P(x)}{Q(x)} = S(x) + \frac{R(x)}{Q(x)} $$</p>
+<p>where \(S\) and \(R\) are also polynomials.</p>
+<h3 id=factoring-term-table>Factoring Term Table</h3>
+<p>Once we have determined that partial fractions can be used, we then use the following table to determine the decomposed terms:</p>
 <table>
 <thead>
 <tr>
-<th colspan=2>Variables</th>
+<th></th>
+<th>Denominator Factor</th>
+<th>Partial Fraction Decomposition Term</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>
-$$ u = x $$
-</td>
-<td>
-$$ dv = \cos x dx $$
-</td>
+<td>Case 1 (Linear Factors)</td>
+<td>$$ ax+b $$</td>
+<td>$$ \frac{A}{ax+b} $$</td>
 </tr>
 <tr>
-<td>
-$$ du = dx $$
-</td>
-<td>
-$$ v = -\sin x dx $$
-</td>
+<td>Case 2 (Repeated Linear Factors)</td>
+<td>$$ (ax+b)^k $$</td>
+<td>$$ \frac{A_1}{ax+b} + \frac{A_2}{(ax+b)^2} + \dots + \frac{A_k}{(ax+b)^k}, k \in \Z^+ $$</td>
+</tr>
+<tr>
+<td>Case 3 (Irreducible Quadratic Factors)</td>
+<td>$$ ax^2+bx+c $$</td>
+<td>$$ \frac{Ax+B}{ax^2+bx+c} $$</td>
+</tr>
+<tr>
+<td>Case 4 (Repeated Irreducible Quadratic Factors)</td>
+<td>$$ (ax^2+bx+c)^k $$</td>
+<td>$$ \frac{A_1x + B_1}{ax^2+bx+c} + \frac{A_2x + B_2}{(ax^2+bx+c)^2} + \dots + \frac{A_kx+B_k}{(ax^2+bx+c)^k}, k \in \Z^+ $$</td>
 </tr>
 </tbody>
 </table>
-<p>And so,</p>
-<p>
-\begin{align}
-\int x \cos x dx &= \int \overbrace{x}^{u} \overbrace{\cos x dx}^{dv} = \overbrace{x}^{u} \sin x - \int \sin x dx \\
-&= x \sin x - (- \cos x) \\
-&= \boxed{x \sin x + \cos x + C}
-\end{align}
-</p>
 </div><aside class="pagenav flex-shrink-0 p-3 bg-white col-sm-12 col-lg-3 col-xl-2">
 <div class="d-block h6 my-2 pb-2 border-bottom">
 On this page:
 </div>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#integration-by-parts>Integration by Parts</a>
+<li><a href=#partial-fraction-decomposition>Partial Fraction Decomposition</a>
 <ul>
-<li><a href=#solved-example-1>Solved Example 1</a></li>
+<li><a href=#factoring-term-table>Factoring Term Table</a></li>
 </ul>
 </li>
 </ul>
